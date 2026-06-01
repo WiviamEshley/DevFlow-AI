@@ -6,7 +6,7 @@ Sistema Multiagente para Planejamento de Projetos de Software utilizando AutoGen
 
 ---
 
-## 📖 Sobre o Projeto
+## 📖 *Sobre o Projeto*
 
 O DevFlow AI é uma solução baseada em Inteligência Artificial que utiliza múltiplos agentes especializados para transformar um briefing de negócio em uma documentação técnica estruturada.
 
@@ -14,7 +14,7 @@ Através de uma arquitetura multiagente coordenada pelo AutoGen Studio e executa
 
 ---
 
-## 🎯 Objetivo
+## 🎯 *Objetivo*
 
 Automatizar a etapa de planejamento de software, permitindo que um simples briefing seja convertido em:
 
@@ -28,7 +28,7 @@ Automatizar a etapa de planejamento de software, permitindo que um simples brief
 
 ---
 
-## 🏗️ Arquitetura da Solução
+## 🏗️ *Arquitetura da Solução*
 
 <img width="800" height="500" alt="Image" src="https://github.com/user-attachments/assets/d1cfab88-e2d3-4fc0-aa65-bfa356b30005" />
 
@@ -38,7 +38,7 @@ Cliente → Tech Lead AI → Analista de Requisitos → Arquiteto de Software �
 
 ---
 
-## *Agentes do Sistema*
+## 🤖 *Agentes do Sistema*
 
 ### - Tech Lead AI
 Responsável por analisar o briefing e coordenar o fluxo de trabalho entre os agentes.
@@ -63,7 +63,7 @@ Consolida todas as contribuições em um documento técnico final.
 
 ---
 
-## 🖥️ AutoGen Studio
+## 🖥️ *AutoGen Studio*
 
 O AutoGen Studio foi utilizado para criar, configurar e coordenar os agentes da equipe virtual.
 
@@ -78,7 +78,7 @@ Funcionalidades utilizadas:
 
 ---
 
-## 🤖 LM Studio
+## 🤖 *LM Studio*
 
 O LM Studio foi utilizado para executar localmente o modelo de linguagem responsável pelo comportamento dos agentes.
 
@@ -99,7 +99,7 @@ Benefícios:
 
 ---
 
-## 📸 Demonstração
+## 📸 *Demonstração*
 
 ### Configuração dos Agentes
 
@@ -115,7 +115,7 @@ Benefícios:
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ *Tecnologias Utilizadas*
 
 | Tecnologia | Finalidade |
 |------------|------------|
@@ -127,7 +127,7 @@ Benefícios:
 
 ---
 
-## 📚 Aprendizados
+## 📚 *Aprendizados*
 
 Durante o desenvolvimento do DevFlow AI foram explorados conceitos como:
 
@@ -140,15 +140,16 @@ Durante o desenvolvimento do DevFlow AI foram explorados conceitos como:
 
 ---
 
-## 👨‍🎓 Projeto Acadêmico
+## 👨‍🎓 *Projeto Acadêmico*
 
 Projeto desenvolvido para fins educacionais na disciplina relacionada à Inteligência Artificial aplicada ao Desenvolvimento de Software.
 
 Curso: Análise e Desenvolvimento de Sistemas  
 Instituição: UNINASSAU
+Equipe:
 
 ---
 
-## ⭐ Conclusão
+## ⭐ *Conclusão*
 
 O DevFlow AI demonstra como múltiplos agentes especializados podem colaborar para transformar um briefing simples em uma documentação estruturada, simulando o trabalho de uma equipe real de desenvolvimento de software e apoiando o processo de planejamento de projetos.
