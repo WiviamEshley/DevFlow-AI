@@ -103,11 +103,12 @@ Benefícios:
 
 ### Configuração dos Agentes
 
-<img width="350" height="400" alt="Image" src="https://github.com/user-attachments/assets/c912dea9-c070-4b85-a49f-4a2ffd8c494b" />
+<img width="400" height="400" alt="Image" src="https://github.com/user-attachments/assets/c912dea9-c070-4b85-a49f-4a2ffd8c494b" />
 
 ### Execução da Equipe Multiagente
 
-![Execução](./images/execution.png)
+<img width="1000" height="500" alt="Image" src="https://github.com/user-attachments/assets/f41aef35-0863-4409-818c-ceffc05b068c" />
+
 
 ### Documento Gerado
 
