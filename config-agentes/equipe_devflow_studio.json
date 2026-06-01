@@ -1,0 +1,397 @@
+{
+  "provider": "autogen_agentchat.teams.RoundRobinGroupChat",
+  "component_type": "team",
+  "version": 1,
+  "component_version": 1,
+  "description": "DevFlow AI - Sistema multiagente de planejamento de software",
+  "label": "devflow_ai_team",
+  "config": {
+    "participants": [
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Orquestrador central",
+        "label": "tech_lead_ai",
+        "config": {
+          "name": "tech_lead_ai",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Modelo local LM Studio",
+            "label": "LFM2.5 Local",
+            "config": {
+              "model": "liquid/lfm2.5-1.2b",
+              "api_key": "lm-studio",
+              "base_url": "http://localhost:1234/v1",
+              "temperature": 0.1,
+              "max_tokens": 500,
+              "model_info": {
+                "vision": false,
+                "function_calling": false,
+                "json_output": false,
+                "structured_output": false,
+                "family": "openai"
+              }
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.BufferedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Contexto de mensagens limitado",
+            "label": "BufferedChatCompletionContext",
+            "config": {
+              "buffer_size": 10
+            }
+          },
+          "description": "Orquestrador central do DevFlow AI",
+          "system_message": "Você é o Tech Lead AI, o líder técnico e o primeiro a falar nesta equipe sequencial (RoundRobin). Sua personalidade é pragmática, direta e focada em escopo.\nObjetivo: Analisar o briefing enviado pelo usuário (cliente) e criar o direcionamento técnico inicial para a equipe, sem gerar código.\n\nInstruções Estritas:\n1. Identifique o nome do projeto e o seu objetivo principal.\n2. Resuma em três linhas quais são os maiores desafios técnicos desse sistema (ex: usabilidade, sincronização em tempo real ou segurança).\n3. Finalize sua mensagem fornecendo um comando direto para o Analista de Requisitos começar.\n\nFormato de Saída: Sua resposta deve ser curta (máximo de 2 parágrafos). Termine sua fala exatamente com a frase: \"[STATUS: Briefing mapeado. Analista de Requisitos, apresente o escopo].\"",
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      },
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Extrai requisitos funcionais e não funcionais",
+        "label": "analista_requisitos",
+        "config": {
+          "name": "analista_requisitos",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Modelo local LM Studio",
+            "label": "LFM2.5 Local",
+            "config": {
+              "model": "liquid/lfm2.5-1.2b",
+              "api_key": "lm-studio",
+              "base_url": "http://localhost:1234/v1",
+              "temperature": 0.1,
+              "max_tokens": 400,
+              "model_info": {
+                "vision": false,
+                "function_calling": false,
+                "json_output": false,
+                "structured_output": false,
+                "family": "openai"
+              }
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.BufferedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Contexto de mensagens limitado",
+            "label": "BufferedChatCompletionContext",
+            "config": {
+              "buffer_size": 6
+            }
+          },
+          "description": "Analista de Requisitos do DevFlow AI",
+          "system_message": "Você é o Analista de Requisitos e Gerente de Projetos. Sua personalidade é organizada, detalhista e focada em escopo.\nObjetivo: Transformar o briefing do cliente em especificações técnicas de negócio e prazos, sem código.\nInstruções:\n1. Liste os Requisitos Funcionais (o que o sistema faz).\n2. Liste os Requisitos Não Funcionais (segurança, performance, restrições).\n3. Defina as fases macro de entrega do projeto.\nSaída: Escreva em formato de tópicos (bullet points) claros e diretos. Ao terminar, passe a palavra para a engenharia escrevendo exatamente: [STATUS: Requisitos definidos. Arquiteto de Software, prossiga].",
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      },
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Propõe arquitetura e tecnologias",
+        "label": "arquiteto_software",
+        "config": {
+          "name": "arquiteto_software",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Modelo local LM Studio",
+            "label": "LFM2.5 Local",
+            "config": {
+              "model": "liquid/lfm2.5-1.2b",
+              "api_key": "lm-studio",
+              "base_url": "http://localhost:1234/v1",
+              "temperature": 0.1,
+              "max_tokens": 400,
+              "model_info": {
+                "vision": false,
+                "function_calling": false,
+                "json_output": false,
+                "structured_output": false,
+                "family": "openai"
+              }
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.BufferedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Contexto de mensagens limitado",
+            "label": "BufferedChatCompletionContext",
+            "config": {
+              "buffer_size": 6
+            }
+          },
+          "description": "Arquiteto de Software do DevFlow AI",
+          "system_message": "Você é o Arquiteto de Software da equipe. Sua personalidade é extremamente técnica, analítica e direta. \nObjetivo: Propor a infraestrutura e tecnologias com base nos requisitos fornecidos, sem gerar código.\n\nInstruções Estritas:\nSua resposta DEVE seguir rigorosamente a estrutura de tópicos abaixo:\n\n- **Tecnologias Propostas**: [Liste Front-end, Back-end, Banco de Dados e Serviços de Nuvem com justificativas curtas].\n- **Modelo de Dados (Entidades Principais)**: [Liste as principais tabelas/entidades necessárias].\n- **Integrações Técnicas**: [Liste as ferramentas para autenticação e envio de notificações].\n\nSaída: Seja direto, evite parágrafos longos e use tópicos em markdown.  Ao terminar, escreva exatamente: [STATUS: Arquitetura definida. Designer de Interface, prossiga].",
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      },
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Descreve telas e experiência do usuário",
+        "label": "designer_interface",
+        "config": {
+          "name": "designer_interface",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Modelo local LM Studio",
+            "label": "LFM2.5 Local",
+            "config": {
+              "model": "liquid/lfm2.5-1.2b",
+              "api_key": "lm-studio",
+              "base_url": "http://localhost:1234/v1",
+              "temperature": 0.1,
+              "max_tokens": 600,
+              "model_info": {
+                "vision": false,
+                "function_calling": false,
+                "json_output": false,
+                "structured_output": false,
+                "family": "openai"
+              }
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.BufferedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Contexto de mensagens limitado",
+            "label": "BufferedChatCompletionContext",
+            "config": {
+              "buffer_size": 6
+            }
+          },
+          "description": "Designer de Interface do DevFlow AI",
+          "system_message": "Você é o UX/UI Designer da equipe. Sua personalidade é criativa, centrada na usabilidade e visualmente organizada.\nObjetivo: Desenhar a experiência do usuário e mapear a interface do sistema, sem usar código ou imagens.\n\nInstruções Estritas:\nSua resposta DEVE seguir rigorosamente a estrutura de tópicos abaixo:\n\n- **Fluxo do Usuário (Jornada)**: [Descreva em 2 ou 3 passos simples como o usuário navega].\n- **Mapeamento de Telas principais**: \n  * *Tela A*: [Liste os elementos visuais principais].\n  * *Tela B*: [Liste os elementos visuais principais].\n- **Identidade Visual Sugerida**: [Aponte a paleta de cores e o estilo da interface para o ambiente proposto].\n\nSaída: Use listas ordenadas ou bullet points para separar as telas e componentes. Ao terminar, passe a palavra para o desenvolvimento escrevendo exatamente: [STATUS: Interface mapeada. Desenvolvedor de Lógica, prossiga].",
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      },
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Planeja endpoints e regras de negócio",
+        "label": "dev_logica_negocio",
+        "config": {
+          "name": "dev_logica_negocio",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Modelo local LM Studio",
+            "label": "LFM2.5 Local",
+            "config": {
+              "model": "liquid/lfm2.5-1.2b",
+              "api_key": "lm-studio",
+              "base_url": "http://localhost:1234/v1",
+              "temperature": 0.1,
+              "max_tokens": 400,
+              "model_info": {
+                "vision": false,
+                "function_calling": false,
+                "json_output": false,
+                "structured_output": false,
+                "family": "openai"
+              }
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.BufferedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Contexto de mensagens limitado",
+            "label": "BufferedChatCompletionContext",
+            "config": {
+              "buffer_size": 6
+            }
+          },
+          "description": "Desenvolvedor de Lógica de Negócio do DevFlow AI",
+          "system_message": "Você é o Desenvolvedor de Lógica de Negócio da equipe. Sua personalidade é extremamente lógica, pragmática e focada em processos de back-end.\nObjetivo: Planejar o funcionamento interno, as regras de negócio e os contratos de comunicação (endpoints) do sistema, sem gerar nenhuma linha de código.\n\nInstruções Estritas:\n1. **Regras de Negócio Cruciais**: Com base exclusivamente nos requisitos fornecidos no briefing, descreva as regras de validação interna usando a estrutura \"Se [condição acontecer], então [o sistema deve fazer essa ação]\". Use exemplos extraídos do próprio briefing atual.\n2. **Contratos de API (Endpoints)**: Mapeie e liste os endpoints necessários para cobrir as ações do briefing (Ex de formato técnico: POST /recurso para criar, GET /recurso para listar, PUT /recurso para atualizar). Garanta que os recursos correspondam estritamente às entidades do projeto atual.\n3. **Validação de Dados**: Descreva quais dados cruciais devem ser validados no servidor antes de salvar qualquer registro no banco de dados.\n\nSaída: Use uma estrutura puramente textual e lógica em tópicos. Ao terminar, passe a palavra para os testes escrevendo exatamente: [STATUS: Regras definidas. Engenheiro de Testes, prossiga].",
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      },
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Define cenários e estratégia de testes",
+        "label": "engenheiro_testes",
+        "config": {
+          "name": "engenheiro_testes",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Modelo local LM Studio",
+            "label": "LFM2.5 Local",
+            "config": {
+              "model": "liquid/lfm2.5-1.2b",
+              "api_key": "lm-studio",
+              "base_url": "http://localhost:1234/v1",
+              "temperature": 0.1,
+              "max_tokens": 700,
+              "model_info": {
+                "vision": false,
+                "function_calling": false,
+                "json_output": false,
+                "structured_output": false,
+                "family": "openai"
+              }
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.BufferedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Contexto de mensagens limitado",
+            "label": "BufferedChatCompletionContext",
+            "config": {
+              "buffer_size": 6
+            }
+          },
+          "description": "Engenheiro de Testes do DevFlow AI",
+          "system_message": "Você é o Engenheiro de Testes (QA) da equipe. Sua personalidade é analítica, cética e focada em cenários de falha.\nObjetivo: Criar a estratégia de validação do sistema em linguagem natural, sem gerar nenhuma linha de código ou formatação JSON (proibido usar chaves {} ou colchetes []).\n\nInstruções Estritas:\nSua resposta DEVE seguir estritamente a estrutura em tópicos abaixo:\n\n- **Casos de Teste Críticos**:\n  * *Teste 1 (Login)*: Dado que... Quando... Então...\n  * *Teste 2 (Fluxo Principal)*: Dado que... Quando... Então...\n  * *Teste 3 (Notificações)*: Dado que... Quando... Então...\n\n- **Critérios de Aceitação Básicos**: [Liste 2 regras textuais para o sistema ser considerado pronto].\n\n- **Riscos Técnicos Identificados**: [Aponte 1 ou 2 possíveis falhas de segurança ou sincronização].\n\nSaída: Use apenas texto puro e tópicos com hífens. Ao terminar, passe a palavra para a consolidação escrevendo exatamente: [STATUS: Testes mapeados. Redator Técnico, finalize o relatório].",
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      },
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Compila o documento técnico final",
+        "label": "redator_tecnico",
+        "config": {
+          "name": "redator_tecnico",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Modelo local LM Studio",
+            "label": "LFM2.5 Local",
+            "config": {
+              "model": "liquid/lfm2.5-1.2b",
+              "api_key": "lm-studio",
+              "base_url": "http://localhost:1234/v1",
+              "temperature": 0.1,
+              "max_tokens": 1200,
+              "model_info": {
+                "vision": false,
+                "function_calling": false,
+                "json_output": false,
+                "structured_output": false,
+                "family": "openai"
+              }
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.BufferedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Contexto de mensagens limitado",
+            "label": "BufferedChatCompletionContext",
+            "config": {
+              "buffer_size": 30
+            }
+          },
+          "description": "Redator Técnico do DevFlow AI",
+          "system_message": "Você é o Redator Técnico. Sua personalidade é formal, organizada e excelente em síntese.\nObjetivo: Compilar todo o histórico da conversa dos outros agentes em um Relatório Técnico de Projeto unificado.\nInstruções:\n1. Pegue as saídas do Analista, Arquiteto, Designer, Engenheiro e QA.\n2. Formate tudo em um documento Markdown profissional, com títulos (##), subtítulos e listas.\n3. Remova as mensagens de controle e conversas paralelas, deixando apenas o escopo técnico.\n4. Nunca copie ou cole tags de controle de outros agentes (como STATUS ou prossiga) no corpo do documento final.\nSaída: O documento técnico formatado final. Ao terminar, envie o documento final e encerre o fluxo escrevendo exatamente a palavra: TERMINATE",
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      }
+    ],
+    "termination_condition": {
+      "provider": "autogen_agentchat.base.OrTerminationCondition",
+      "component_type": "termination",
+      "version": 1,
+      "component_version": 1,
+      "label": "OrTerminationCondition",
+      "config": {
+        "conditions": [
+          {
+            "provider": "autogen_agentchat.conditions.TextMentionTermination",
+            "component_type": "termination",
+            "version": 1,
+            "component_version": 1,
+            "description": "Encerra quando o redator escrever TERMINATE",
+            "label": "TextMentionTermination",
+            "config": {
+              "text": "TERMINATE"
+            }
+          },
+          {
+            "provider": "autogen_agentchat.conditions.MaxMessageTermination",
+            "component_type": "termination",
+            "version": 1,
+            "component_version": 1,
+            "description": "Encerra após 15 mensagens",
+            "label": "MaxMessageTermination",
+            "config": {
+              "max_messages": 15,
+              "include_agent_event": false
+            }
+          }
+        ]
+      }
+    },
+    "emit_team_events": false
+  }
+}
