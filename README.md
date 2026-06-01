@@ -82,7 +82,7 @@ Funcionalidades utilizadas:
 
 O LM Studio foi utilizado para executar localmente o modelo de linguagem responsável pelo comportamento dos agentes.
 
-![LM Studio](./images/lm-studio.png)
+<img width="800" height="500" alt="Image" src="https://github.com/user-attachments/assets/e2aba342-026f-4187-b52e-d93b14d89bf5" />
 
 Modelo utilizado:
 
