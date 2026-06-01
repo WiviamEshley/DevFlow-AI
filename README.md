@@ -38,27 +38,27 @@ Cliente → Tech Lead AI → Analista de Requisitos → Arquiteto de Software �
 
 ---
 
-## 🤖 Agentes do Sistema
+## *Agentes do Sistema*
 
-### 🧠 Tech Lead AI
+### - Tech Lead AI
 Responsável por analisar o briefing e coordenar o fluxo de trabalho entre os agentes.
 
-### 📋 Analista de Requisitos
+### - Analista de Requisitos
 Identifica requisitos funcionais e não funcionais a partir do briefing do cliente.
 
-### 🏛️ Arquiteto de Software
+### - Arquiteto de Software
 Propõe a arquitetura e as tecnologias adequadas para o sistema.
 
-### 🎨 Designer de Interface
+### - Designer de Interface
 Define telas, fluxo de navegação e experiência do usuário.
 
-### ⚙️ Desenvolvedor de Lógica de Negócio
+### - Desenvolvedor de Lógica de Negócio
 Especifica processos, regras de negócio e validações.
 
-### 🧪 Engenheiro de Testes
+### - Engenheiro de Testes
 Cria casos de teste e identifica possíveis riscos do projeto.
 
-### 📝 Redator Técnico
+### - Redator Técnico
 Consolida todas as contribuições em um documento técnico final.
 
 ---
@@ -67,7 +67,7 @@ Consolida todas as contribuições em um documento técnico final.
 
 O AutoGen Studio foi utilizado para criar, configurar e coordenar os agentes da equipe virtual.
 
-![AutoGen Studio](./images/autogen-studio.png)
+<img width="800" height="500" alt="Image" src="https://github.com/user-attachments/assets/cc458a15-5fa3-49ac-885e-b89239cca832" />
 
 Funcionalidades utilizadas:
 
