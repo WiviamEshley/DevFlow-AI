@@ -30,7 +30,7 @@ Automatizar a etapa de planejamento de software, permitindo que um simples brief
 
 ## 🏗️ Arquitetura da Solução
 
-![Arquitetura do Sistema](./images/arquitetura-devflow.png)
+<img width="800" height="500" alt="Image" src="https://github.com/user-attachments/assets/d1cfab88-e2d3-4fc0-aa65-bfa356b30005" />
 
 Fluxo de execução:
 
@@ -60,23 +60,6 @@ Cria casos de teste e identifica possíveis riscos do projeto.
 
 ### 📝 Redator Técnico
 Consolida todas as contribuições em um documento técnico final.
-
----
-
-## 🔄 Fluxo Multiagente
-
-```mermaid
-flowchart TD
-
-A[Cliente] --> B[Tech Lead AI]
-B --> C[Analista de Requisitos]
-C --> D[Arquiteto de Software]
-D --> E[Designer de Interface]
-E --> F[Desenvolvedor de Lógica]
-F --> G[Engenheiro de Testes]
-G --> H[Redator Técnico]
-H --> I[Documento Final]
-```
 
 ---
 
