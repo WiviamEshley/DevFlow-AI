@@ -95,7 +95,6 @@ Benefícios:
 - Execução local
 - Baixo consumo de recursos
 - Integração com AutoGen Studio
-- Ambiente offline
 
 ---
 
