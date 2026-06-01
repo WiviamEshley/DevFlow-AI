@@ -143,12 +143,16 @@ Durante o desenvolvimento do DevFlow AI foram explorados conceitos como:
 
 ## 👨‍🎓 *Projeto Acadêmico*
 
-Projeto desenvolvido para fins educacionais na disciplina relacionada à Inteligência Artificial aplicada ao Desenvolvimento de Software.
+Projeto desenvolvido durante a Residência Tecnológica, iniciativa realizada em parceria com o Porto Digital, com foco na aplicação de Inteligência Artificial e Sistemas Multiagentes para apoio ao planejamento de software.
 
-Curso: Análise e Desenvolvimento de Sistemas  
-Instituição: UNINASSAU
-
-Equipe:
+**Curso**: Análise e Desenvolvimento de Sistemas  
+**Instituição**: UNINASSAU  
+**Equipe**: Anna Luiza Gomes Sobral - 01747584  
+Eric Santos Bispo da Silva - 01755006  
+Maria Clara Matos Duarte - 01747494  
+Iasmim Burgos de Souza 01747566  
+Paulo Renato Pereira Bezerra - 01750308  
+Wíviam Eshley Anacleto da Silva - 01751563  
 
 ---
 
