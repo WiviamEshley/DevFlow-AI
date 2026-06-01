@@ -107,12 +107,12 @@ Benefícios:
 
 ### Execução da Equipe Multiagente
 
-<img width="1000" height="500" alt="Image" src="https://github.com/user-attachments/assets/f41aef35-0863-4409-818c-ceffc05b068c" />
+<img width="1899" height="1075" alt="Image" src="https://github.com/user-attachments/assets/f41aef35-0863-4409-818c-ceffc05b068c" />
 
 
 ### Documento Gerado
 
-![Documento Final](./images/documento-final.png)
+<img width="1899" height="1075" alt="Image" src="https://github.com/user-attachments/assets/e2bd81b3-0aef-4645-a896-637899c80ff9" />
 
 ---
 
