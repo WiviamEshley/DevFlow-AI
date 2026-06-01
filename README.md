@@ -2,7 +2,7 @@
 
 Sistema Multiagente para Planejamento de Projetos de Software utilizando AutoGen Studio e LM Studio.
 
-!<img width="900" height="500" alt="Image" src="https://github.com/user-attachments/assets/175217ac-f3a7-4666-95f2-a03c55073bb9" />
+<img width="900" height="500" alt="Image" src="https://github.com/user-attachments/assets/175217ac-f3a7-4666-95f2-a03c55073bb9" />
 
 ---
 
@@ -147,6 +147,7 @@ Projeto desenvolvido para fins educacionais na disciplina relacionada à Intelig
 
 Curso: Análise e Desenvolvimento de Sistemas  
 Instituição: UNINASSAU
+
 Equipe:
 
 ---
